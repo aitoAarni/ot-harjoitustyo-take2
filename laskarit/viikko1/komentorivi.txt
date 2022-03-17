@@ -1,0 +1,15 @@
+kurssi/
+├── linus
+├── muistiinpanot.txt
+├── ohpe
+├── oikeus.txt
+├── poetry-testi
+│   ├── poetry.lock
+│   ├── pyproject.toml
+│   └── src
+│       └── index.py
+├── skript.sh
+├── unicafe.txt
+└── Untitled Document 1
+
+2 directories, 10 files
