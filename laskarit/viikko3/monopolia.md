@@ -3,9 +3,11 @@ Sovelluksen loogisen tietomallin muodostavat luokat User ja Todo, jotka kuvaavat
 
 ```mermaid
  classDiagram
-      Todo "*" --> "1" User
+      peli "1" --> "*" pelaaja
+      ruutu "1" <.. "*" pelaaja
       class pelaaja{
           ruutu
+          heitä_noppaa()
       }
       class peli{
           pelaajat
@@ -13,8 +15,4 @@ Sovelluksen loogisen tietomallin muodostavat luokat User ja Todo, jotka kuvaavat
       }
       class ruutu{
           seuraava_ruutu
-      }
-      class Noppa{
-          heitä_noppaa
-      }
 ```
