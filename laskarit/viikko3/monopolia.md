@@ -15,4 +15,5 @@ Sovelluksen loogisen tietomallin muodostavat luokat User ja Todo, jotka kuvaavat
       }
       class ruutu{
           seuraava_ruutu
+      }
 ```
