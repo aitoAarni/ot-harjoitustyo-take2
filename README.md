@@ -11,3 +11,6 @@
 **Viikko 2**
 
  [tuntikirjanpito](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/Tuntikirjanpito.txt)
+
+**Viikko 2**
+
