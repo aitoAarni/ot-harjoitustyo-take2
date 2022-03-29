@@ -1,21 +1,16 @@
+
+Sovelluksen loogisen tietomallin muodostavat luokat User ja Todo, jotka kuvaavat käyttäjiä ja käyttäjien tehtäviä:
+
+```mermaid
  classDiagram
-      Animal <|-- Duck
-      Animal <|-- Fish
-      Animal <|-- Zebra
-      Animal : +int age
-      Animal : +String gender
-      Animal: +isMammal()
-      Animal: +mate()
-      class Duck{
-          +String beakColor
-          +swim()
-          +quack()
+      Todo "*" --> "1" User
+      class User{
+          username
+          password
       }
-      class Fish{
-          -int sizeInFeet
-          -canEat()
+      class Todo{
+          id
+          content
+          done
       }
-      class Zebra{
-          +bool is_wild
-          +run()
-      }
+```
