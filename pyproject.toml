@@ -1,11 +1,12 @@
 [tool.poetry]
-name = "src"
+name = "ot-harjoitustyo"
 version = "0.1.0"
 description = ""
 authors = ["Aarni <dabeastelele@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pygame = "^2.1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.1"
