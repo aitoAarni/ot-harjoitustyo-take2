@@ -17,5 +17,7 @@ testikattavuus
 
 ## Dokumentaatio
 [vaatimusmäärittely](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
 [tuntikirjanpito](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/Tuntikirjanpito.txt)
+
 [changelog](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/changelog.md)
