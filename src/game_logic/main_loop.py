@@ -1,3 +1,4 @@
+from tkinter import N
 import pygame
 from pygame.locals import *
 from ui.game_display import GameDisplay
@@ -9,14 +10,16 @@ class GameInputLoop:
         self.display = screen
         self.width = w
         self.height = h
+        self.n = w // 20
         self.clock = clock
         self.initialize_game(level=level)
-        self.generate_sprite_groups()
         self.draw_game = GameDisplay(self.display, self.display_sprites)
 
     def initialize_game(self, level=1):
-        self.map = Map(0, 0)
-        self.player = Player((255, 255, 255), 100, 100)
+        self.map = Map(self.n, level=level)
+        self.player = Player((255, 255, 255), self.n, self.width, self.height)
+        self.player.position_player_for_start(self.height)
+        self.generate_sprite_groups()
         
 
     def generate_sprite_groups(self):

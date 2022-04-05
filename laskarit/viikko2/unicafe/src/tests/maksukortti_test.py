@@ -28,3 +28,4 @@ class TestMaksukortti(unittest.TestCase):
         on_rahaa = oikein == True
         ei_ole_rahaa = vaarin == False
         self.assertEqual(on_rahaa, ei_ole_rahaa)
+        
