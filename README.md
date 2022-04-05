@@ -1,16 +1,21 @@
-# Ohjelmsitotekniikka, harjoitustyö
-## Tehtävät
-**Viikko 1**  
+# Tasohyppelypeli
 
-[gitlog.txt](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/laskarit/viikko1/gitlog.txt)  
+Pelissä mennään eteenpäin vakionopeudella ja siinä pitää hyppimmällä väistellä esteitä sekä päästä eteenpäin The Impossble Game:n hengessä
 
-[komentorivi.txt](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/laskarit/viikko1/komentorivi.txt)
+## komentorivitoiminnot
 
-[määrittyely.md](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/vaatimusmaarittely.md)
+ohjelman suoritus
+> poetry run invoke start
 
-**Viikko 2**
+ohjelman testaus
+> poetry run invoke test
 
- [tuntikirjanpito](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/Tuntikirjanpito.txt)
+testikattavuus
+> poetry run invoke coverage-report
 
-**Viikko 3**
 
+
+## Dokumentaatio
+[vaatimusmäärittely](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[tuntikirjanpito](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/Tuntikirjanpito.txt)
+[changelog](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/changelog.md)
