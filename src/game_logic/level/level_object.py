@@ -7,7 +7,10 @@ class Object(pygame.sprite.Sprite):
         self.image = pygame.Surface((width, height))
         self.image.fill(color)
         self.rect = self.image.get_rect()
-        self.rect.topleft = (pos_x, pos_y)
+        self.rect.bottomleft = (pos_x, pos_y)
     
-    def move(self, x, y):
-        pass
+    def update(self, x=None, y=None):
+        if x:
+            self.rect.x -= x
+        if y:
+            self.rect.y += y

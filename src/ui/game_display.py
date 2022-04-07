@@ -8,5 +8,6 @@ class GameDisplay:
 
 
     def display_game(self):
+        self.display.fill((0,0,0))
         self.sprite_group.draw(self.display)
         pygame.display.flip()
