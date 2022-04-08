@@ -1,3 +1,4 @@
+from socket import gaierror
 from pygame.locals import *
 from ui.game_display import GameDisplay
 from game_logic.player import Player
@@ -19,11 +20,11 @@ class GameInputLoop:
 
     def initialize_game(self, level=1):
         self.map = Map(self.n, self.height, level=level)
-        self.player = Player((255, 255, 255), self.n, self.width)
+        self.player = Player(self.n, self.width)
         self.player.position_player_for_start(self.height//2)
         self.generate_sprite_groups()
         self.events = GameEvents()
-        self.collisions = CheckCollisions(self.player, self.map.blocks)
+        self.collisions = CheckCollisions(self.player, self.map.blocks, self.map.spikes)
 
         
 
@@ -33,6 +34,10 @@ class GameInputLoop:
 
             
     def move_sprites(self):
+        if self.collisions.spike_collision():
+            self.game_over = True
+            return
+
         if self.player.falling_status:
             outcome = self.collisions.falling_collision_detection()
             if outcome == 1:
@@ -46,7 +51,6 @@ class GameInputLoop:
         else:
             outcome2 = self.collisions.detect_collision()
             if outcome2 == -1:  # player hit a block
-                print('shee')
                 self.game_over = True
 
             elif outcome2 == 1:  # player travelling on a block
@@ -58,8 +62,8 @@ class GameInputLoop:
                     self.player.jump()
                 else:
                     self.player.falling_status = True  # player isn't touching a block
-        self.map.blocks.update(self.player.speed_x)
-    
+        self.map.map_objects.update(self.player.speed_x)
+
     def move_screen(self):
         move_delta = (self.player.rect.y - (self.height - self.height / 3)) / 10
         self.display_sprites.update(y=-move_delta)

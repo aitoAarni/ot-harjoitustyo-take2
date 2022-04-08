@@ -3,10 +3,10 @@ import pygame
 
 
 class CheckCollisions:
-    def __init__(self, player, blocks, deadly=None):
+    def __init__(self, player, blocks, spikes):
         self.player = player
         self.blocks = blocks
-        self.deadly = deadly
+        self.spikes = spikes
 
     def falling_collision_detection(self) -> int:
         next_pos = Object(self.player.next_position_while_falling())
@@ -16,7 +16,7 @@ class CheckCollisions:
             # create linear funktio to see if block lands on the side of the block or on top of it
             k = (next_pos.rect.top-self.player.rect.top)/(next_pos.rect.left-self.player.rect.left)
             # we will see in which y coordinate the line is while it is at the same width as the block
-            y_pos = k * (block.rect.left - next_pos.rect.right) + next_pos.rect.top
+            y_pos = k * (block.rect.left - next_pos.rect.right) + next_pos.rect.bottom
             
             if block.rect.top < y_pos:
                 self.player.rect.bottom = next_pos.rect.bottom
@@ -28,7 +28,8 @@ class CheckCollisions:
                 return 1
         return 0
 
-    def detect_collision(self):
+    def detect_collision(self) -> int:
+        # detect if the player hits hits a block 
         collision_blocks = pygame.sprite.spritecollide(self.player, self.blocks, False)
         if collision_blocks:
             for block in collision_blocks:
@@ -37,6 +38,11 @@ class CheckCollisions:
             return 1
         else:
             return 0
+
+    def spike_collision(self) -> bool:
+        if pygame.sprite.spritecollide(self.player, self.spikes, False, collided=pygame.sprite.collide_mask):
+            return True
+        False
 
 
 class Object(pygame.sprite.Sprite):

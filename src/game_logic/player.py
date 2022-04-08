@@ -1,20 +1,23 @@
+from turtle import width
 import pygame
 from pygame.locals import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, color, n, w) -> None:
+    def __init__(self, n, w, color=(0, 255, 0)) -> None:
         super().__init__()
         self.n = n
         self.image = pygame.Surface((n, n))
-        self.image.fill(color)
+        self.image.set_colorkey((0, 0, 0))
         self.rect = self.image.get_rect()
         self._jump_velocity_index = 0   
         self._falling_velocity_index = 0
         self.speed_y = 0
-        self.__speed_x = n /6 
+        self.__speed_x = n / 6 
         self.do_jump = False
         self.falling_status = False
         self.generate_vel()
+        self.create_rect(color)
+        self.mask = pygame.mask.from_surface(self.image)
 
     def generate_vel(self):
         self.jump_velocities = [self.n/(i//2) for i in range(8, 23)]
@@ -23,6 +26,10 @@ class Player(pygame.sprite.Sprite):
         self.falling_velocities = [self.n/(i//2) for i in range(8, 23)]
         # self.falling_velocities.append(0)
         self.falling_velocities.reverse()
+
+    def create_rect(self, color):
+        pygame.draw.rect(self.image, color, 
+            pygame.Rect(0, 0, self.n, self.n), width=self.n//8)
 
     @property
     def speed_x(self):
