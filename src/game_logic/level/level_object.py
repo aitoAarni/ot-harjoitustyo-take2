@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 
-class Object(pygame.sprite.Sprite):
+class Block(pygame.sprite.Sprite):
     def __init__(self, width, height, pos_x, pos_y, color=(255, 255, 0)) -> None:
         super().__init__()
         self.image = pygame.Surface((width, height))
@@ -39,4 +39,4 @@ class Spike(pygame.sprite.Sprite):
             self.rect.x -= x
         if y:
             self.rect.y += y
-        print('bottomleft of spike', self.rect.bottomleft)
+            

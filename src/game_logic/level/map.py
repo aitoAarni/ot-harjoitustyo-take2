@@ -1,19 +1,19 @@
 from pygame.locals import *
 import pygame
-from game_logic.level.level_object import Object, Spike
+from game_logic.level.level_object import Spike, Block as Object
 
 class Map:
     def __init__(self, n, height, level=1):
         self.n = n
         self.height = height
         self.level_list = [
-            '                                                                                               ',
-            '                                                                                              -',
-            '                               --                                                             -',
-            '                           -        -   -  -                                                  -',
-            '                      -                                          ---                          -',
-            '                  -      ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤          ¤¤                           ---         -',
-            '------------------------------------------------------------------------------------------------'
+            '                                                                                                         ',
+            '                                      -     --                                                          -',
+            '                               --                                                                       -',
+            '                           -                       -                                                    -',
+            '                      -                                                                                 -',
+            '                  -      ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  ¤¤          ¤¤¤¤              ¤¤¤¤     ---         -',
+            '---------------------------------------------------------------------------------------------------------'
         ]
         self.create_map ()
 
@@ -40,9 +40,3 @@ class Map:
         self.visible_blocks = pygame.sprite.Group()
         self.visible_spikes = pygame.sprite.Group()
 
-    def create_diplay_group(self):
-        group = self.blocks.copy()
-        spikes = self.spikes.sprites()
-        group.add(spikes)
-        return group
-    

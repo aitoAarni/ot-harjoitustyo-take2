@@ -24,3 +24,26 @@ class GameEvents:
                 if event.key == pygame.K_SPACE:
                     self.player_jump = False
 
+
+class MenuEvents:
+    def __init__(self) -> None:
+        self.click = False
+        self.pos = None
+        
+
+    def events(self):
+        self.click = False
+        self.pos = None
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    sys.exit()
+                    
+            if event.type == pygame.MOUSEBUTTONUP:
+                if event.button == 1:
+                    self.click = True
+                    self.pos = event.pos

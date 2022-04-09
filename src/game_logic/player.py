@@ -21,10 +21,7 @@ class Player(pygame.sprite.Sprite):
 
     def generate_vel(self):
         self.jump_velocities = [self.n/(i//2) for i in range(8, 23)]
-        # self.jump_velocities.append(0)
-        print(self.jump_velocities)
         self.falling_velocities = [self.n/(i//2) for i in range(8, 23)]
-        # self.falling_velocities.append(0)
         self.falling_velocities.reverse()
 
     def create_rect(self, color):
