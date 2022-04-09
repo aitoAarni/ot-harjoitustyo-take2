@@ -27,13 +27,13 @@ class GameEvents:
 
 class MenuEvents:
     def __init__(self) -> None:
-        self.click = False
-        self.pos = None
+        self.mouse_click_pos = None
+        self.mouse_movement_pos = None
         
 
     def events(self):
-        self.click = False
-        self.pos = None
+        self.mouse_click = False
+        self.mouse_movement_pos
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -45,5 +45,7 @@ class MenuEvents:
                     
             if event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 1:
-                    self.click = True
-                    self.pos = event.pos
+                    self.mouse_click = True
+
+            if event.type == pygame.MOUSEMOTION:
+                self.mouse_movement_pos = event.pos

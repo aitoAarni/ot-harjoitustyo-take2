@@ -25,15 +25,12 @@ class Button(pygame.sprite.Sprite):
         self.rect.midtop = (x, y)
 
 
-    def button_active(self):
-        surf = pygame.image((self.rect.size))
-        surf.fill((255, 255, 255, 75))
-        self.image.blit(surf, 0, 0)
 
 
 class PlayButton(Button):
     def __init__(self, width, height, color=(0, 255, 0)) -> None:
         super().__init__(width, height, "Play",color)
+        self.action = "play"
 
 class ArrowButton(Button):
     def __init__(self, width, height, color=(0, 255, 0)) -> None:

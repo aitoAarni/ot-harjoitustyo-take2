@@ -23,6 +23,4 @@ class Application:
 
     def run(self):
         while True:
-            if self.play_game:
-                self.game()
-                self.menu()
+            map_name = self.menu()

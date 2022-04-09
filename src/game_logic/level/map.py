@@ -6,15 +6,7 @@ class Map:
     def __init__(self, n, height, level=1):
         self.n = n
         self.height = height
-        self.level_list = [
-            '                                                                                                         ',
-            '                                      -     --                                                          -',
-            '                               --                                                                       -',
-            '                           -                       -                                                    -',
-            '                      -                                                                                 -',
-            '                  -      ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  ¤¤          ¤¤¤¤              ¤¤¤¤     ---         -',
-            '---------------------------------------------------------------------------------------------------------'
-        ]
+        self.level_list = level
         self.create_map ()
 
     def create_map(self):

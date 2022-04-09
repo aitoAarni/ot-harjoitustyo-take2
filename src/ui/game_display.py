@@ -18,8 +18,13 @@ class MenuDisplay:
         self.display = display
         self.buttons = buttons
     
-    def display_menu(self, map=None):
+    def display_menu(self, light_up_button: pygame.Rect, map=None):
         self.display.fill((0, 0, 0))
         self.buttons.draw(self.display)
+        if light_up_button:
+            print(light_up_button.center)
+            light = pygame.Surface(light_up_button.size)
+            light.set_alpha(100)
+            light.fill((0,50, 155))
+            self.display.blit(light, light_up_button.topleft)
         pygame.display.flip()
-        
