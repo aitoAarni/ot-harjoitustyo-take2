@@ -1,13 +1,15 @@
 from pygame.locals import *
-import pygame
+from tools.db_interface import get_map
 from game_logic.level.level_object import Spike, Block as Object
+import pygame
+
 
 class Map:
-    def __init__(self, n, height, level=1):
+    def __init__(self, n, height, level):
         self.n = n
         self.height = height
-        self.level_list = level
-        self.create_map ()
+        self.level_list = get_map(level)
+        self.create_map()
 
     def create_map(self):
         self.blocks = pygame.sprite.Group()
@@ -23,12 +25,13 @@ class Map:
                     sprite = Object(self.n, self.n, x, y, ((255, 0, 0)))
                 elif block == "¤":
                     spike = Spike(self.n, self.n, x, y)
-                if sprite: self.blocks.add(sprite)
-                elif spike: self.spikes.add(spike)
+                if sprite:
+                    self.blocks.add(sprite)
+                elif spike:
+                    self.spikes.add(spike)
         self.map_objects = pygame.sprite.Group()
         self.map_objects.add(self.blocks.sprites())
         self.map_objects.add(self.spikes.sprites())
         self.visible_sprites = pygame.sprite.Group()
         self.visible_blocks = pygame.sprite.Group()
         self.visible_spikes = pygame.sprite.Group()
-
