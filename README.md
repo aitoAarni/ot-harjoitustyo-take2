@@ -21,3 +21,5 @@ testikattavuus
 [tuntikirjanpito](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/Tuntikirjanpito.txt)
 
 [changelog](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/changelog.md)
+
+[arkkitehtuuri](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/arkkitehtuuri.md)
