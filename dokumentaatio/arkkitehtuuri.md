@@ -1,5 +1,7 @@
 ```mermaid
  classDiagram
+      Application "1" -- "1" GameInputLoop 
+      Application "1" -- "1" MainMenu
       Player "1" -- "1" GameInputLoop
       Block "*" -- "1" GameInputLoop
       Spike "*" -- "1" GameInputLoop
@@ -18,8 +20,6 @@
       MenuDisplay "1" -- "*" Buttons
       MenuEvents "1" -- "1" MainMenu
       
-      Application "1" -- "1" MainMenu
-      Application "1" -- "1" GameInputLoop
 ```
 
 
