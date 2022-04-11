@@ -1,6 +1,6 @@
 import pygame
 from menu.main_menu import MainMenu
-from game_logic.main_loop import GameInputLoop
+from game_logic.game_loop import GameInputLoop
 
 class Application:
     def __init__(self) -> None:

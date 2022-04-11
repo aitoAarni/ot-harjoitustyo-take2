@@ -18,4 +18,4 @@ def test(ctx):
 
 @task
 def lint(ctx):
-    ctx.run("poetry run pylint src > lint_errors.txt", pty=True)
+    ctx.run("poetry run pylint src", pty=True)

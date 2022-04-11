@@ -9,7 +9,6 @@ def get_map_names():
 # it is easier to visualize if it isn't broken down
 def get_map(name: str = '123'):
     if name:
-
         return [
         '                                                                                                               ',
         '                                             -     --                                                          -',

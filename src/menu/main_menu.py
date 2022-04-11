@@ -5,16 +5,15 @@ from ui.game_display import MenuDisplay
 from tools.events import MenuEvents
 
 
-# pylint: disable=too-many-instance-attributes
-# 11 attributes seem to be a reasonable amount in this case
-
 class MainMenu:
+    # pylint: disable=too-many-instance-attributes
+    # 11 attributes seem to be a reasonable amount in this case
     def __init__(self, screen, width, height, clock) -> None:
         self.display = screen
         self.width = width
         self.height = height
         self.clock = clock
-        self.map_name = None
+        self.map_name = "name"
         self.light_up_button = None
         self.continue_looping = True
         self.create_buttons()

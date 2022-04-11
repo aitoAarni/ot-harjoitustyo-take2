@@ -1,27 +1,27 @@
-from pygame.locals import *
 from game_logic.level.level_object import Spike, Block
-from ui.game_display import GameDisplay
 from game_logic.player import Player
+from game_logic.detect_collisions import CheckCollisions
 from game_logic.level.map import Map
 from tools.events import GameEvents
-from game_logic.detect_collisions import CheckCollisions
+from ui.game_display import GameDisplay
 
 
 class GameInputLoop:
-    def __init__(self, screen, w, h, clock, level) -> None:
-        self.display = screen
-        self.width = w
-        self.height = h
-        self.n = w // 20
+    # pylint: disable=too-many-instance-attributes
+    # exit_to_main_menu and game_over seem pretty handy attributes to me
+    # that's why there are 10 instead of 8 instance attributes
+    def __init__(self, screen, width, height, clock, level) -> None:
+        self.width = width
+        self.height = height
         self.clock = clock
         self.exit_to_main_menu = False
-        self.initialize_game(level=level)
-        self.draw_game = GameDisplay(self.display, self.map.visible_sprites)
+        self.initialize_game(width // 20, level=level)
+        self.draw_game = GameDisplay(screen, self.map.visible_sprites)
         self.game_over = False
 
-    def initialize_game(self, level):
-        self.map = Map(self.n, self.height, level=level)
-        self.player = Player(self.n, self.width)
+    def initialize_game(self, block_size, level):
+        self.map = Map(block_size, self.height, level=level)
+        self.player = Player(block_size)
         self.player.position_player_for_start(self.height//2)
         self.events = GameEvents()
         self.collisions = CheckCollisions(
@@ -48,7 +48,7 @@ class GameInputLoop:
             outcome = self.collisions.falling_collision_detection()
             if outcome == 1:
                 self.player.falling_status = False
-                self.player._falling_velocity_index = 0
+                self.player.falling_velocity_index = 0
             elif outcome == -1:
                 self.game_over = True
             else:
@@ -85,8 +85,7 @@ class GameInputLoop:
 
     def loop(self):
         while not self.game_over and not self.exit_to_main_menu:
-            print(13)
+            self.game_events()
             if not self.game_over:
                 self.draw_game.display_game()
-            self.game_events()
             self.clock.tick(60)

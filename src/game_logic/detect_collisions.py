@@ -1,4 +1,3 @@
-from pygame.locals import *
 import pygame
 
 
@@ -18,7 +17,7 @@ class CheckCollisions:
             # create linear funktio to see if block lands on the side of the block or on top of it
             k = (next_pos.rect.top-self.player.rect.top) / \
                 (next_pos.rect.left-self.player.rect.left)
-            # we will see in which y coordinate the line is 
+            # we will see in which y coordinate the line is
             # while it is at the same width as the block
             y_pos = k * (block.rect.left - next_pos.rect.right) + \
                 next_pos.rect.bottom
@@ -27,10 +26,10 @@ class CheckCollisions:
                 self.player.rect.bottom = next_pos.rect.bottom
                 # this means game over, because the line goes under the topleft corner of the block
                 return -1
-            elif block.rect.top >= y_pos:  # player landed safely on a block
-                self.player.rect.bottom = block.rect.top + 1
-                # next_pos.rect.left + (block.rect.top-next_pos.rect.top)/k
-                return 1
+            # player landed safely on a block
+            self.player.rect.bottom = block.rect.top + 1
+            # next_pos.rect.left + (block.rect.top-next_pos.rect.top)/k
+            return 1
         return 0
 
     def detect_collision(self) -> int:
@@ -42,8 +41,7 @@ class CheckCollisions:
                 if block.rect.top+1 < self.player.rect.bottom:
                     return -1
             return 1
-        else:
-            return 0
+        return 0
 
     def spike_collision(self) -> bool:
         if pygame.sprite.spritecollide(

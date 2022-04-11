@@ -1,6 +1,4 @@
 import pygame
-from pygame.locals import *
-
 
 class Block(pygame.sprite.Sprite):
     def __init__(self, width, height, pos_x, pos_y, color=(255, 255, 0)) -> None:
@@ -15,7 +13,8 @@ class Block(pygame.sprite.Sprite):
         pygame.draw.rect(self.image, self.color,
                          pygame.Rect(0, 0, width, height), width=1)
 
-    def update(self, x=None, y=None):
+    def update(self, x=None, y=None): # pylint: disable=invalid-name
+        # to me x and y are appropriate names here even though they are not snake case
         if x:
             self.rect.x -= x
         if y:
@@ -37,7 +36,8 @@ class Spike(pygame.sprite.Sprite):
                                                 (0, self.rect.height),
                                                 (self.rect.width, self.rect.height)), width=1)
 
-    def update(self, x=None, y=None):
+    def update(self, x=None, y=None):  # pylint: disable=invalid-name
+        # to me x and y are appropriate names here even though they are not snake case
         if x:
             self.rect.x -= x
         if y:
