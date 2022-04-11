@@ -4,15 +4,17 @@ Peliss채 menn채채n eteenp채in vakionopeudella ja siin채 pit채채 hyppimm채ll채 v�
 
 ## komentorivitoiminnot
 
-ohjelman suoritus
+### ohjelman suoritus
 > poetry run invoke start
 
-ohjelman testaus
+### ohjelman testaus
 > poetry run invoke test
 
-testikattavuus
+### testikattavuus
 > poetry run invoke coverage-report
 
+### Pylint tarkistus
+> poetry run invoke lint
 
 
 ## Dokumentaatio
