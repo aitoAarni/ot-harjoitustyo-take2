@@ -6,4 +6,4 @@ data/database.sqlite
 data/test_database.sqlite
 data/test_maps/*
 src/.vscode
-
+.coverage
