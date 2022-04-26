@@ -2,10 +2,24 @@
 
 Pelissä mennään eteenpäin vakionopeudella ja siinä pitää hyppimmällä väistellä esteitä sekä päästä eteenpäin The Impossble Game:n hengessä
 
+## Asennus
+
+### Asenna riippuvuudet komennolla
+> poetry install
+
+### Suorita vaadittavat alustustoimenpiteet komennolla
+> poetry run invoke setup
+
+### ohjelman suoritus
+> poetry run invoke start
+
 ## komentorivitoiminnot
 
 ### ohjelman suoritus
 > poetry run invoke start
+
+### Suorita vaadittavat alustustoimenpiteet komennolla
+> poetry run invoke setup
 
 ### ohjelman testaus
 > poetry run invoke test

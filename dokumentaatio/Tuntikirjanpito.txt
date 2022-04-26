@@ -5,4 +5,7 @@ n. 7 h
 viikko 4
 n. 21 h
 
-yht: 28 h
+"viikko" 5
+n. 11 h
+
+yht: 39 h
