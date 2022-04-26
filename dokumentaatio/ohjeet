@@ -1,0 +1,8 @@
+- Pelissä voi valita kartan valikosta näkyvillä nuolilla
+- esc näppäin poistuu pelistä sekä valikossa se poistuu sovelluksesta
+- pelaajaa voi kontrolloida vain välilyönnillä, jolloin pelaaja hyppää
+- peliin voi lisätä karttoja lisäämällä tekstitiedoston oletus kansioon data/maps
+
+kartan luonti
+karttaan voi lisätä kolmenlaisia palikoita: palikka (-), piikki (¤ shift+4) tai maali (f)
+ 

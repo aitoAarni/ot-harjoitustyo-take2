@@ -1,0 +1,115 @@
+commit 81ff370be83f13b1cbb0bc264e913512fe94f659
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Fri Mar 18 00:08:19 2022 +0200
+
+    muutoksii
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 308a1019c4df8a00677939e23084dbc185a9d533
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Fri Mar 18 00:05:15 2022 +0200
+
+    filei lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4654de304bfad39c768e919488569feb9d5ff5e5
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 23:22:15 2022 +0200
+
+    muutoksii
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 664ec4a79542ade40afca29457ce90290ce00cf8
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 23:20:24 2022 +0200
+
+    lil muutos för da name
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 61d18fcc8fc0ad0b55a955fe6b6b46982cecf130
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 23:19:34 2022 +0200
+
+    toka poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit bdead9742f93c936506ef49fdb0902cb774d9bda
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 22:26:39 2022 +0200
+
+    edit tiedosto.txt
+
+ tiedosto.txt | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit e1f805b06b1794214f961248e7ea2e74c76ac534
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 22:25:30 2022 +0200
+
+    add tiedosto.txt
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 6c3e30cc531088e8836fff45ffa74538da0ebd11
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 22:12:17 2022 +0200
+
+    uus hakemisto ja tierosto
+
+ jokin_tiedost.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8d151aabd6be02ab46640fd77ba28f49037ea0db
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 22:10:53 2022 +0200
+
+    vähä muutoksii2
+    
+    f
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit a53c76b6a4cfdaaad928ac91514e6f64c5e451d1
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 22:09:50 2022 +0200
+
+    kommitti
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 93c9cca9c9efe487f693ecfb772ab523851a0281
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 22:06:56 2022 +0200
+
+    muutos & lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 99ff3dd4cfbb02b4507f880b4617b1f11f20d561
+Author: Aarni <dabeastelele@gmail.com>
+Date:   Thu Mar 17 22:04:22 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
