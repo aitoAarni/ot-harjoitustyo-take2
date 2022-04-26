@@ -2,10 +2,11 @@ import pygame
 
 
 class CheckCollisions:
-    def __init__(self, player, blocks, spikes):
+    def __init__(self, player, blocks, spikes, finish):
         self.player = player
         self.blocks = blocks
         self.spikes = spikes
+        self.finish = finish
 
     def falling_collision_detection(self) -> int:
         next_pos = Object(self.player.next_position_while_falling())
@@ -45,7 +46,12 @@ class CheckCollisions:
 
     def spike_collision(self) -> bool:
         if pygame.sprite.spritecollide(
-            self.player, self.spikes, False, collided=pygame.sprite.collide_mask):
+                self.player, self.spikes, False, collided=pygame.sprite.collide_mask):
+            return True
+        return False
+
+    def finish_collision(self) -> bool:
+        if pygame.sprite.spritecollide(self.player, self.finish, False):
             return True
         return False
 

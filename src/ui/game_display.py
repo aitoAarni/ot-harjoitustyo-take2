@@ -14,13 +14,13 @@ class GameDisplay:
 
 
 class MenuDisplay:
-    def __init__(self, display: pygame.display, buttons) -> None:
+    def __init__(self, display: pygame.display, display_group) -> None:
         self.display = display
-        self.buttons = buttons
+        self.display_group = display_group
 
     def display_menu(self, light_up_button: pygame.Rect, map=None):
         self.display.fill((0, 0, 0))
-        self.buttons.draw(self.display)
+        self.display_group.draw(self.display)
         if light_up_button:
             light = pygame.Surface(light_up_button.size)
             light.set_alpha(100)

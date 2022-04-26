@@ -28,17 +28,18 @@ class MenuEvents:
     def __init__(self) -> None:
         self.mouse_click = False
         self.mouse_movement_pos = None
+        self.end_app = False
 
     def events(self):
         self.mouse_click = False
         self.mouse_movement_pos = None
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                self.end_app = True
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    sys.exit()
+                    self.end_app = True
 
             if event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 1:

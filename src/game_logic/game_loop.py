@@ -17,7 +17,7 @@ class GameInputLoop:
         self.exit_to_main_menu = False
         self.initialize_game(width // 20, level=level)
         self.draw_game = GameDisplay(screen, self.map.visible_sprites)
-        self.game_over = False
+        self.game_over = 0
 
     def initialize_game(self, block_size, level):
         self.map = Map(block_size, self.height, level=level)
@@ -25,7 +25,7 @@ class GameInputLoop:
         self.player.position_player_for_start(self.height//2)
         self.events = GameEvents()
         self.collisions = CheckCollisions(
-            self.player, self.map.visible_blocks, self.map.visible_spikes)
+            self.player, self.map.visible_blocks, self.map.visible_spikes, self.map.visible_finish)
 
     def search_on_screen_sprites(self):
         self.map.visible_sprites.empty()
@@ -38,10 +38,17 @@ class GameInputLoop:
                     self.map.visible_blocks.add(sprite)
                 elif isinstance(sprite, Spike):
                     self.map.visible_spikes.add(sprite)
+                else:
+                    self.map.visible_finish.add(sprite)
 
     def move_sprites(self):
         if self.collisions.spike_collision():
-            self.game_over = True
+            self.game_over = 1
+            return
+
+        if self.collisions.finish_collision():
+            self.game_over = 2
+            self.exit_to_main_menu = True
             return
 
         if self.player.falling_status:
@@ -50,14 +57,14 @@ class GameInputLoop:
                 self.player.falling_status = False
                 self.player.falling_velocity_index = 0
             elif outcome == -1:
-                self.game_over = True
+                self.game_over = 1
             else:
                 self.player.falling_status = True
                 self.player.falling()
         else:
             outcome2 = self.collisions.detect_collision()
             if outcome2 == -1:  # player hit a block
-                self.game_over = True
+                self.game_over = 1
 
             elif outcome2 == 1:  # player travelling on a block
                 if self.events.player_jump:

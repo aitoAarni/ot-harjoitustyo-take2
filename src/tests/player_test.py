@@ -25,10 +25,10 @@ class TestPlayer(unittest.TestCase):
         self.assertEqual(self.player.do_jump, True)
 
     def test_player_stops_jumping(self):
-        self.player._jump_velocity_index = len(self.player.jump_velocities) -1
+        self.player._jump_velocity_index = len(self.player.jump_velocities) - 1
         self.player.jump()
         self.assertEqual(self.player.do_jump, False)
-    
+
     def test_falling_velocity_index_works_when_falling(self):
         self.player.falling_status = True
         self.player.falling()
@@ -57,7 +57,7 @@ class TestPlayer(unittest.TestCase):
     def test_update_function_with_when_given_values(self):
         self.player.update(10)
         self.assertEqual(self.player.rect.top, 10)
-    
+
     def test_update_function_without_values(self):
         self.player.update()
         self.assertEqual(self.player.rect.top, 0)

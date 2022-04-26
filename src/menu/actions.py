@@ -17,9 +17,9 @@ class MenuActions:
 
     def mouse_click_on_button(self):
         pressed_button = pygame.sprite.spritecollide(
-            self.mouse, self.buttons, False)[0]
+            self.mouse, self.buttons, False)
         if pressed_button:
-            return pressed_button.action
+            return pressed_button[0].action
         return None
 
 
