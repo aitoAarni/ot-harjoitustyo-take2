@@ -22,4 +22,13 @@
       
 ```
 
+### Päävalikon luominen
 
+```mermaid
+sequenceDiagram
+    MainMenu->>play_button: Button(width, height, 'Play')
+    MainMenu->>map_stats: MapStats(width, height)
+    MainMenu->>map_left: Button(width, height, '<')
+    MainMenu->>map_right: Button(width, height, '<')
+    MainMenu->>quit_game: Button(width, height, 'Quit')
+```
