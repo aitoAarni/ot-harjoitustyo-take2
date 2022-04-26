@@ -27,14 +27,17 @@
 ```mermaid
 sequenceDiagram
     MainMenu->>+play_button: Button(width, height, 'Play')
-    play_button -->>- MainMenu: self.display_group.add(play_button)
-    MainMenu->>map_stats: MapStats(width, height)
+    play_button -->>- MainMenu: self.display_group.add(play_button), self.buttons.add(play_button)
+    MainMenu->>+map_stats: MapStats(width, height)
+    map_stats -->>- MainMenu: self.display_group.add(map_stats)
     MainMenu->>+map_left: Button(width, height, '<')
-    map_left -->>- MainMenu: self.display_group.add(map_left)
+    map_left -->>- MainMenu: self.display_group.add(map_left), self.buttons.add(map_left)
     MainMenu->>+map_right: Button(width, height, '<')
-    map_right -->>- MainMenu: self.display_group.add(map_right)
+    map_right -->>- MainMenu: self.display_group.add(map_right), self.buttons.add(map_right)
     MainMenu->>+quit_game: Button(width, height, 'Quit')
-    quit_game -->>- MainMenu: self.display_group.add(quit_gmae)
+    quit_game -->>- MainMenu: self.display_group.add(quit_game), self.buttons.add(quit_game)
     MainMenu->>self.events: MenuEvents() 
     MainMenu->>self.draw_menu: MenuDisplay(screen, self.display_group)
+    MainMenu->>self.actions: MenuActions(self.buttons)
+    self.actions->>self.mouse: Mouse()
 ```
