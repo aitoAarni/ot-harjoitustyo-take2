@@ -12,4 +12,4 @@
 - Pelin logiikka valmis
 - Tietokanta lisätty ja otettu käyttöön, sekä tiedostot joissa on tasot
 - Testejä lisätty
-- Pelin valikko tehty
+- Pelin Päävalikko tehty valmiiksi
