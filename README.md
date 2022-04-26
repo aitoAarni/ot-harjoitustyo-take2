@@ -1,9 +1,9 @@
 # Tasohyppelypeli
 
 Pelissä mennään eteenpäin vakionopeudella ja siinä pitää hyppimmällä väistellä esteitä sekä päästä eteenpäin The Impossble Game:n hengessä
+
 Pelin [release](https://github.com/aitoAarni/ot-harjoitustyo-take2/releases/tag/viikko5)
 
-Pelin [ohjeet](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/ohjeet)
 
 ## Asennus
 
@@ -42,3 +42,5 @@ Pelin [ohjeet](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/do
 [changelog](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/changelog.md)
 
 [arkkitehtuuri](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+[ohjeet](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/ohjeet)
