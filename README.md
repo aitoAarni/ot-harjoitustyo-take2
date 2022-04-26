@@ -1,6 +1,7 @@
 # Tasohyppelypeli
 
 Pelissä mennään eteenpäin vakionopeudella ja siinä pitää hyppimmällä väistellä esteitä sekä päästä eteenpäin The Impossble Game:n hengessä
+Pelin [ohjeet](https://github.com/aitoAarni/ot-harjoitustyo-take2/blob/master/dokumentaatio/ohjeet)
 
 ## Asennus
 
