@@ -10,16 +10,34 @@ class GameInputLoop:
     # pylint: disable=too-many-instance-attributes
     # exit_to_main_menu and game_over seem pretty handy attributes to me
     # that's why there are 10 instead of 8 instance attributes
+    """Class that manages the game, while it is played
+
+    Attributes:
+        screen (pygame.display): the display for the game
+        width (int): screen width
+        height (int): screen height
+        clock (pygame.time.clock): the clock object, that will manage the tickrate
+        level (list): the map for the game
+    """
     def __init__(self, screen, width, height, clock, level) -> None:
+        """Class constructor
+
+        Args:
+            screen (pygame.display): the display for the game
+            width (int): screen width
+            height (int): screen height
+            clock (pygame.time.clock): the clock object, that will manage the tickrate
+            level (list): the map for the game
+        """
         self.width = width
         self.height = height
         self.clock = clock
         self.exit_to_main_menu = False
-        self.initialize_game(width // 20, level=level)
+        self.__initialize_game(width // 20, level=level)
         self.draw_game = GameDisplay(screen, self.map.visible_sprites)
         self.game_over = 0
 
-    def initialize_game(self, block_size, level):
+    def __initialize_game(self, block_size, level):
         self.map = Map(block_size, self.height, level=level)
         self.player = Player(block_size)
         self.player.position_player_for_start(self.height//2)
@@ -27,7 +45,7 @@ class GameInputLoop:
         self.collisions = CheckCollisions(
             self.player, self.map.visible_blocks, self.map.visible_spikes, self.map.visible_finish)
 
-    def search_on_screen_sprites(self):
+    def __search_on_screen_sprites(self):
         self.map.visible_sprites.empty()
         self.map.visible_sprites.add(self.player)
         for sprite in self.map.map_objects:
@@ -41,7 +59,7 @@ class GameInputLoop:
                 else:
                     self.map.visible_finish.add(sprite)
 
-    def move_sprites(self):
+    def __move_sprites(self):
         if self.collisions.spike_collision():
             self.game_over = 1
             return
@@ -77,22 +95,24 @@ class GameInputLoop:
                     self.player.falling_status = True  # player isn't touching a block
         self.map.map_objects.update(self.player.speed_x)
 
-    def move_screen(self):
+    def __move_screen(self):
         move_delta = (self.player.rect.y -
                       (self.height - self.height / 2)) / 10
         self.map.map_objects.update(y=-move_delta)
         self.player.update(y=-move_delta)
 
-    def game_events(self):
+    def __game_events(self):
         self.exit_to_main_menu = self.events.events()
         if not self.game_over:
-            self.search_on_screen_sprites()
-            self.move_sprites()
-            self.move_screen()
+            self.__search_on_screen_sprites()
+            self.__move_sprites()
+            self.__move_screen()
 
     def loop(self):
+        """Loops the game, untile the map is completed of player exits
+        """
         while not self.game_over and not self.exit_to_main_menu:
-            self.game_events()
+            self.__game_events()
             if not self.game_over:
                 self.draw_game.display_game()
             self.clock.tick(60)

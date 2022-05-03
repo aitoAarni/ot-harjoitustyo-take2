@@ -2,13 +2,35 @@ import pygame
 
 
 class CheckCollisions:
+    """Class for checking collisions between sprites
+
+    Attributes:
+        player (Sprite): the player object
+        blocks (spirte.Group): sprite group of bocks
+        spikes (sprite.Group): sprite group of spikes
+        finish (sprite.Group): spirte group of finishes
+    """
     def __init__(self, player, blocks, spikes, finish):
+        """Class constructor
+
+        Args:
+            player (Sprite): the player object
+            blocks (spirte.Group): sprite group of bocks
+            spikes (sprite.Group): sprite group of spikes
+            finish (sprite.Group): spirte group of finishes
+        """
         self.player = player
         self.blocks = blocks
         self.spikes = spikes
         self.finish = finish
 
     def falling_collision_detection(self) -> int:
+        """When player is falling this will detect if the player hits a block and
+            does the game end because of that hit
+
+        Returns:
+            int: 0 means no hit, 1 means landed on top of a block, -1 means hit the side of the block
+        """
         next_pos = Object(self.player.next_position_while_falling())
         collision_blocks = pygame.sprite.spritecollide(
             next_pos, self.blocks, False)
@@ -34,6 +56,11 @@ class CheckCollisions:
         return 0
 
     def detect_collision(self) -> int:
+        """Detects if player collides whit blocks
+
+        Returns:
+            int: 0 means no collision, 1 means block is on top of a block, -1 player hit the side of a block
+        """
         # detect if the player hits hits a block
         collision_blocks = pygame.sprite.spritecollide(
             self.player, self.blocks, False)
@@ -45,18 +72,39 @@ class CheckCollisions:
         return 0
 
     def spike_collision(self) -> bool:
+        """detects if player collides with a spike
+
+        Returns:
+            bool: returns boolean if the player collided with a spike
+        """
         if pygame.sprite.spritecollide(
                 self.player, self.spikes, False, collided=pygame.sprite.collide_mask):
             return True
         return False
 
     def finish_collision(self) -> bool:
+        """detects if player collides with a finish block
+
+        Returns:
+            bool: returns boolean if the player collided with a finish block
+        """
         if pygame.sprite.spritecollide(self.player, self.finish, False):
             return True
         return False
 
 
 class Object(pygame.sprite.Sprite):
+    """Class to represent the next position of the player object
+
+    
+    Attributes:
+        rect (tuple): represents the players cordinates and size
+    """
     def __init__(self, rect) -> None:
+        """class constructor
+
+        Args:
+            rect (tuple): represents the players cordinates and size
+        """
         super().__init__()
         self.rect = rect

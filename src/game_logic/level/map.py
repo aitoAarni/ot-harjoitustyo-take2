@@ -3,7 +3,22 @@ from game_logic.level.level_object import Spike, Finish, Block as Object
 
 
 class Map:
+    """Class for creating a map for the game
+
+    Atrributes:
+        block_size (int): how much every map object will take space
+        height (int): how many pixels the screen's height is
+        level (list): list of strings that represents the map
+    """
+    
     def __init__(self, block_size, height, level):
+        """Class constructor
+
+        Args:
+            block_size (int): how much every map object will take space
+            height (int): how many pixels the screen's height is
+            level (list): list of strings that represents the map
+        """
         self.block_size = block_size
         self.level_list = level
         self.create_map(height)
@@ -13,6 +28,11 @@ class Map:
         self.visible_finish = pygame.sprite.Group()
 
     def create_map(self, heigth):
+        """Creates map objects according to a list of strings
+
+        Args:
+            heigth (int): height of the screen
+        """
         self.blocks = pygame.sprite.Group()
         self.spikes = pygame.sprite.Group()
         self.finish = pygame.sprite.Group()
