@@ -45,7 +45,7 @@ class GameInputLoop:
         self.collisions = CheckCollisions(
             self.player, self.map.visible_blocks, self.map.visible_spikes, self.map.visible_finish)
 
-    def __search_on_screen_sprites(self):
+    def _search_on_screen_sprites(self):
         self.map.visible_sprites.empty()
         self.map.visible_sprites.add(self.player)
         for sprite in self.map.map_objects:
@@ -59,7 +59,7 @@ class GameInputLoop:
                 else:
                     self.map.visible_finish.add(sprite)
 
-    def __move_sprites(self):
+    def _move_sprites(self):
         if self.collisions.spike_collision():
             self.game_over = 1
             return
@@ -104,8 +104,8 @@ class GameInputLoop:
     def __game_events(self):
         self.exit_to_main_menu = self.events.events()
         if not self.game_over:
-            self.__search_on_screen_sprites()
-            self.__move_sprites()
+            self._search_on_screen_sprites()
+            self._move_sprites()
             self.__move_screen()
 
     def loop(self):

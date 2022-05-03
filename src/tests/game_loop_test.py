@@ -15,48 +15,48 @@ class GameLoopTest(unittest.TestCase):
         self.game.map.blocks.sprites()[0].rect.topleft = (2000, 0)
         self.game.map.spikes.sprites()[0].rect.topleft = (2000, 0)
         self.game.map.finish.sprites()[0].rect.topleft = (2000, 0)
-        self.game.search_on_screen_sprites()
+        self.game._search_on_screen_sprites()
         self.assertEqual(len(self.game.map.visible_blocks.sprites()), 1)
         self.assertEqual(len(self.game.map.visible_spikes.sprites()), 1)
         self.assertEqual(len(self.game.map.visible_finish.sprites()), 1)
 
     def test_move_sprites_game_not_ending(self):
-        self.game.search_on_screen_sprites()
+        self.game._search_on_screen_sprites()
         answers = []
         self.game.player.rect.topleft = (10, 15)
 
         self.game.events.player_jump = False
         self.game.player.falling_status = True
-        self.game.move_sprites()
+        self.game._move_sprites()
         answers.append(self.game.game_over)
 
         self.game.events.player_jump = False
         self.game.player.falling_status = True
         self.game.player.rect.topleft = (0, 0)
-        self.game.move_sprites()
+        self.game._move_sprites()
         answers.append(self.game.game_over)
 
         self.game.events.player_jump = False
         self.game.player.falling_status = False
         self.game.player.rect.topleft = (0, 0)
-        self.game.move_sprites()
+        self.game._move_sprites()
         answers.append(self.game.game_over)
 
         self.game.events.player_jump = True
         self.game.player.falling_status = False
         self.game.player.rect.topleft = (0, 0)
-        self.game.move_sprites()
+        self.game._move_sprites()
         answers.append(self.game.game_over)
 
         self.game.player.falling_status = False
         self.game.player.do_jump = False
         self.game.player.rect.topleft = (800, 0)
-        self.game.move_sprites()
+        self.game._move_sprites()
         answers.append(self.game.game_over)
 
         self.game.player.do_jump = False
         self.game.player.falling_status = False
-        self.game.move_sprites()
+        self.game._move_sprites()
         answers.append(self.game.game_over)
 
         self.assertListEqual(answers, [0, 0, 0, 0, 0, 0])
