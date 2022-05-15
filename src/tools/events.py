@@ -3,10 +3,19 @@ import pygame
 
 
 class GameEvents:
+    """class that facilitates input event detection while game is running
+    """
     def __init__(self) -> None:
+        """GameEvents constructor 
+        """
         self.player_jump = False
 
     def events(self):
+        """detects input events
+
+        Returns:
+            bool: if user exits game
+        """
         exit_to_menu = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -25,12 +34,18 @@ class GameEvents:
 
 
 class MenuEvents:
+    """facilitates event detection in the lobby
+    """
     def __init__(self) -> None:
+        """MenuEvents constructor
+        """
         self.mouse_click = False
         self.mouse_movement_pos = None
         self.end_app = False
 
     def events(self):
+        """detects input events
+        """
         self.mouse_click = False
         self.mouse_movement_pos = None
         for event in pygame.event.get():

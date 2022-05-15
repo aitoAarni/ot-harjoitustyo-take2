@@ -8,22 +8,38 @@ from ui.menu_render import MapStats
 
 
 class MainMenu:
+    """The MainMenu class runs the main menu and calls the necessary components
+
+       Attributes:
+            screen (pygame.display): display of the application
+            width (int): screen width
+            height (int): screen height
+            clock (pygame.time.Clock): applicatin's clock which defines the tickrate
+    """
     # pylint: disable=too-many-instance-attributes
     # 11 attributes seem to be a reasonable amount in this case
     def __init__(self, screen, width, height, clock) -> None:
+        """Constructor for the MainMenu class
+
+        Args:
+            screen (pygame.display): display of the application
+            width (int): screen width
+            height (int): screen height
+            clock (pygame.time.Clock): applicatin's clock which defines the tickrate
+        """
         self.display = screen
         self.width = width
         self.height = height
         self.clock = clock
         self.light_up_button = None
         self.continue_looping = True
-        self.create_buttons()
+        self._create_buttons()
         self.events = MenuEvents()
         self.draw_menu = MenuDisplay(screen, self.display_group)
         self.actions = MenuActions(self.buttons)
         self.map_level = None
 
-    def create_buttons(self):
+    def _create_buttons(self):
         play_button = Button(self.width / 3, self.width / 15, 'Play')
         self.map_stats = MapStats(self.width / 3, self.height / 10)
         map_left = Button(self.width / 15, self.width / 15, '<')
@@ -47,7 +63,7 @@ class MainMenu:
         map_right.rect.topleft = (
             self.map_stats.rect.right + gap, self.map_stats.rect.top)
 
-    def button_actions(self):
+    def _button_actions(self):
         if self.events.mouse_movement_pos:
             self.light_up_button = self.actions.check_for_mouse_hover(
                 self.events.mouse_movement_pos)
@@ -56,7 +72,7 @@ class MainMenu:
             if action:
                 action = action.lower()
                 if action == 'play':
-                    self.start_game()
+                    self._start_game()
                 elif action == '<':
                     self.map_stats.previous_map()
                 elif action == '>':
@@ -64,14 +80,19 @@ class MainMenu:
                 elif action == "quit":
                     self.events.end_app = True
 
-    def start_game(self):
+    def _start_game(self):
         self.map_level = get_map(self.map_stats.current_map)
         self.continue_looping = False
 
     def loop(self):
+        """Loop to keep the main menu working
+
+        Returns:
+            tuple: returns selected map, selected map name and end_app boolean
+        """
         while self.continue_looping and not self.events.end_app:
             self.events.events()
-            self.button_actions()
+            self._button_actions()
             self.draw_menu.display_menu(self.light_up_button)
             self.clock.tick(60)
         return self.map_level, self.map_stats.current_map, self.events.end_app

@@ -2,7 +2,18 @@ import pygame
 
 
 class Button(pygame.sprite.Sprite):
+    """Class that represents buttons
+    """
     def __init__(self, width, height, text, color=(0, 255, 0), font='Helvetica.ttf') -> None:
+        """Class constructor for Button
+
+        Args:
+            width (int): screen width
+            height (int): screen height
+            text (str): defines button's use
+            color (tuple, optional): color of the button. Defaults to (0, 255, 0).
+            font (str, optional): font used on the button's text. Defaults to 'Helvetica.ttf'.
+        """
         super().__init__()
         pygame.font.init()
         self.image = pygame.Surface((width, height))
@@ -24,4 +35,10 @@ class Button(pygame.sprite.Sprite):
                         4, self.rect.height/2 - height / 4))
 
     def align(self, pos_x, pos_y):
+        """aligns the button midtop on the screen
+
+        Args:
+            pos_x (int): x position
+            pos_y (int): y position
+        """
         self.rect.midtop = (pos_x, pos_y)

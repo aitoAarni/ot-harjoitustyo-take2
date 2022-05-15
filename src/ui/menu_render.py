@@ -3,7 +3,17 @@ from tools.storage_interface import get_map_stats
 
 
 class MapStats(pygame.sprite.Sprite):
+    """For displaying map names and their stats
+
+    """
     def __init__(self, width, height, font='Helvetica.ttf') -> None:
+        """MapStats constructor
+
+        Args:
+            width (int): screen width
+            height (int): screen height
+            font (str, optional): font of the text. Defaults to 'Helvetica.ttf'.
+        """
         super().__init__()
         pygame.font.init()
         self.color = (0, 255, 0)
@@ -17,6 +27,8 @@ class MapStats(pygame.sprite.Sprite):
         self.create_texts()
 
     def create_texts(self):
+        """creates the texts
+        """
         self.image.fill((0, 0, 0))
         stats = self.map_stats[self.index]
         self.current_map = stats[0]
@@ -42,6 +54,8 @@ class MapStats(pygame.sprite.Sprite):
                         self.rect.height - self.__height / 4))
 
     def next_map(self):
+        """switch actively displayed map to next
+        """
         if self.index == len(self.map_stats) - 1:
             self.index = 0
         else:
@@ -49,6 +63,8 @@ class MapStats(pygame.sprite.Sprite):
         self.create_texts()
 
     def previous_map(self):
+        """switch actively displayed map to previous
+        """
         if self.index == 0:
             self.index = len(self.map_stats) - 1
         else:
@@ -56,4 +72,10 @@ class MapStats(pygame.sprite.Sprite):
         self.create_texts()
 
     def align(self, pos_x, pos_y):
+        """align's the text
+
+        Args:
+            pos_x (int): x coordinate
+            pos_y (int): y coordinate
+        """
         self.rect.midtop = (pos_x, pos_y)

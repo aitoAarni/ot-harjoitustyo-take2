@@ -6,6 +6,11 @@ from config import MAP_DIRECOTORY_PATH
 
 
 def get_map_stats():
+    """gets stats from a database for maps
+
+    Returns:
+        list: list of stats for maps
+    """
     connection = get_database_connection()
     cursor = connection.cursor()
     cursor.execute('SELECT name, attempts, wins FROM stats;')
@@ -22,12 +27,25 @@ def get_map_stats():
 
 
 def get_map_names():
+    """gets map names from directory
+
+    Returns:
+        list: map names
+    """
     path = MAP_DIRECOTORY_PATH
     maps = [f for f in listdir(path) if isfile(join(path, f))]
     return maps
 
 
 def get_map(name: str):
+    """gets map level from file
+
+    Args:
+        name (str): map name
+
+    Returns:
+        list: gets the map level
+    """
     if name:
         path = os.path.join(MAP_DIRECOTORY_PATH, name)
         level = []
@@ -42,6 +60,13 @@ def get_map(name: str):
 
 
 def add_score(name: str, attempts: int, win: int):
+    """updates scores to database
+
+    Args:
+        name (str): map name
+        attempts (int): attempts for the map
+        win (int): 0 or 1 if the map was beaten
+    """
     connection = get_database_connection()
     cursor = connection.cursor()
     cursor.execute(f"SELECT attempts, wins FROM stats WHERE name='{name}';")
