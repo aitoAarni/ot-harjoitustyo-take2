@@ -5,11 +5,17 @@ Lataa projektin viimeisimmän releasen lähdekoodi valitsemalla Assets-osion alt
 Tallennukseen käytettäviä tiedostoja voidaan konfiguroida .env-tiedostossa. Tiedostot luodaan automaattisesti data-hakemistoon, jos niitä ei vielä siellä ole.
 
 ## Ohjelman käynnistäminen
+
 Ennen ohjelman käynnistystä asenna riippuvuudet komennolla:
+
 > poetry install
+
 jonka jälkeen suorita alustustoimenpiteet komennolla:
+
 > poetry run invoke setup
+
 Ohjelman voi käynnistää komennolla:
+
 > poetry run invoke start
 
 ## Käyttäminen
