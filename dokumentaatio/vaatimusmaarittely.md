@@ -6,11 +6,7 @@ Sovellus on tasohyppelypeli, joka on The Imposible Gamen henkinen pelaajaa liiku
 
 ## Toiminnallisuudet
 
-- Päävalikko, josta voi :heavy_check_mark: aloittaa pelintai nähdä parhaat tulokset ja tilsastoja :heavy_check_mark:
-- :heavy_check_mark: pelissä on kartta tai useita karttoja, joita voi :heavy_check_mark: pelata
-- :heavy_check_mark: Peli kartat koostuvat tietyistä palikoista sekä esteistä ja jos esteisiin osuu tai putoaa rotkoon, niin :heavy_check_mark: peli loppuuu.
-
-## Jatko kehitys ideat
-
-- Kartan luomista varten grafikaalinen käyttöliittymä.
+- Päävalikko, josta voi aloittaa pelin tai nähdä tilsastoja jotka ovat tietokannassa
+- Pelissä on karttoja joita voi pelata ja ne saadaan tiedostosta.
+- Peli kartat koostuvat palikoista, piikeistä sekä maalista esteisiin osuu, niin peli loppuuu
 
