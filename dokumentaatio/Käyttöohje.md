@@ -20,4 +20,4 @@ Ohjelman voi käynnistää komennolla:
 
 ## Tason luominen
 .env tiedostossa ollaa määritelty missä kartat sijaitsevat, mutta oletusarvoisesti ne ovat data kansiossa.
-Sinne voi lisätä uusia tiedostoja joihin voi tehdä itse kartoja.
+Sinne voi lisätä uusia tiedostoja joihin voi tehdä itse karttoja.
