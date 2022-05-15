@@ -13,3 +13,7 @@
 - Tietokanta lisätty ja otettu käyttöön, sekä tiedostot joissa on tasot
 - Testejä lisätty
 - Pelin Päävalikko tehty valmiiksi
+
+# viikko 6-7
+- doc-string valmis
+- lisätty dokumentaatio tiedostoja
